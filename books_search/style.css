@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    background-color: #5F9EA0;
+}
+
+.wrapper {
+    width: 700px;
+    background-color:#F0FFF0;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.header {
+
+    font-family: 'Libre Baskerville', serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    height: 400px;
+    padding: 20px 40px;
+    background-image: url('https://cdn.pixabay.com/photo/2016/03/09/15/29/books-1246674_960_720.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.header-title {
+    /* color: #882627; */
+    color: white;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.search {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .85);
+}
+
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .35);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.book-links {
+    padding: 40px;
+}
+
+h2 {
+    padding-bottom: 30px;
+}
+
+ul {
+    padding-bottom: 20px;
+    font-size: 20px;
+    list-style: none;
+}
+
+li {
+    padding: 5px 30px;
+    border-bottom: 1px solid #5F9EA0;
+}
+
+li:last-child {
+    border-bottom: none;
+}
