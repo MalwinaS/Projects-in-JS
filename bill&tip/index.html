@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator napiwków</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Nunito:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header">
+        <h1>Billsplitter</h1>
+        <p>Podziel się rachunkiem ze znajomymi :)</p>
+        </div>
+        <div class="split-block">
+
+                <label for="price">Kwota do zapłaty</label>
+                <input type="number" id="price">
+
+                <label for="people">Ilość osób</label>
+                <input type="number" id="people">
+
+                <label for="tip">Napiwek</label>
+                <select id="tip">
+                    <option value="0" disabled selected>- wybierz napiwek -</option>
+                    <option value="0,05">5%</option>
+                    <option value="0,1">10%</option>
+                    <option value="0,15">15%</option>
+                    <option value="0,2">20%</option>
+                </select>
+
+            <button class="btn-count">Oblicz</button>
+            <p class="error"></p>
+            <p class="cost-info">Powinniście się złożyć po: <span class="cost">zł! ;)</span></p>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
