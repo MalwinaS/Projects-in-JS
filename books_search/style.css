@@ -20,7 +20,6 @@ body {
 }
 
 .header {
-
     font-family: 'Libre Baskerville', serif;
     display: flex;
     justify-content: flex-end;
@@ -36,7 +35,6 @@ body {
 }
 
 .header-title {
-    /* color: #882627; */
     color: white;
     margin-bottom: 10px;
     font-size: 40px;
