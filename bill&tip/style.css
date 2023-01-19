@@ -14,11 +14,9 @@ body {
 }
 
 .wrapper {
-
     width: 500px;
     background-color: #fff;
     border-radius: 10px;
-
 }
 
 .header {
@@ -32,10 +30,10 @@ body {
     padding: 40px;
     text-transform: uppercase;
 }
+
 .header p {
     margin-top: 10px;
 } 
-
 
 .split-block {
     display: flex;
