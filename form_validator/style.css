@@ -67,8 +67,7 @@ h1 {
 .control-buttons {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 40px;
-    margin-right: 40px;
+    margin-top: 40px;
 }
 
 .btn {
@@ -102,7 +101,7 @@ h1 {
 
 
 .pop-up {
-    display: none;
+    display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
