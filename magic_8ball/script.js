@@ -1,50 +1,55 @@
 const ballArea = document.querySelector('.ball-area')
-const answer1 = document.querySelector('.answer')
+const ball = document.querySelector('.ball')
+const answer = document.querySelector('.answer')
 const error = document.querySelector('.error')
 const questionInput = document.querySelector('.question')
 const myRequest = new Request('answers.json');
 
 
 questionInput.addEventListener("keypress", function(event) {
-
     if (event.key === "Enter") {
       event.preventDefault();
-
+      startAnimate()
       checkQuestion()
     }
   })
 
-const checkQuestion = () => {
+
+const startAnimate = () => {
     ballArea.firstElementChild.classList.add('shake-animation')
+    checkQuestion()
+}
+
+const checkQuestion = () => {      
+
+    answer.textContent = ""
     const question = questionInput.value
     if (question != '') {
-        if(question.includes('?')) {
+        let pattern = /[.!?]$/
+        if(pattern.test(question)) {
             checkAnswer()
         } else {
-            error.textContent = "Brakuje znaku zapytania"
+            error.textContent = "Pytanie musi być zakończone znakiem '?'"
         }
     } else {
-        error.textContent = "Zadaj pytanie"
+        error.textContent = "Musisz zadać jakieś pytanie"
     }
 }
 
-// let ranAnswers = 
-
-// fetch(myRequest)
-//   .then((response) => response.json())
-//   .then((data) => {
-
-//         console.log(data)
-
-
-//   })
-
-
-// .sort(function() { return .5 - Math.random();});
-
-
 const checkAnswer = () => {
-    // console.log(ranAnswers)
-    answer1.innerHTML = ranAnswers
+    error.textContent = ""
 
+    
+fetch(myRequest)
+  .then((response) => response.json())
+  .then((data) => { 
+
+   let arr =  JSON.parse(JSON.stringify(data))
+   let arrprop = (arr.answers)
+   let answerRandom = arrprop[Math.floor(Math.random()*arrprop.length)];
+   answer.innerHTML = `<span>Odpowiedź: </span> ${answerRandom}`
+
+  })
 }
+
+ball.addEventListener('click', startAnimate)
