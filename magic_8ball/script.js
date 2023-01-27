@@ -1,4 +1,4 @@
-const ballArea = document.querySelector('.ball-area')
+// const ballArea = document.querySelector('.ball-area')
 const ball = document.querySelector('.ball')
 const answer = document.querySelector('.answer')
 const error = document.querySelector('.error')
@@ -9,36 +9,39 @@ const myRequest = new Request('answers.json');
 questionInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
-      startAnimate()
-      checkQuestion()
+      ball.classList.add('shake-animation')
+    setTimeout(checkQuestion, 1000)
     }
   })
 
 
 const startAnimate = () => {
-    ballArea.firstElementChild.classList.add('shake-animation')
-    checkQuestion()
+    ball.classList.add('shake-animation')
+    setTimeout(checkQuestion, 1000)
 }
 
 const checkQuestion = () => {      
 
     answer.textContent = ""
     const question = questionInput.value
-    if (question != '') {
-        let pattern = /[.!?]$/
-        if(pattern.test(question)) {
-            checkAnswer()
-        } else {
-            error.textContent = "Pytanie musi być zakończone znakiem '?'"
-        }
+    // let pattern = /[.!?]$/
+    if (question != '' && question.slice(-1) === '?') {
+        checkAnswer()
+        error.textContent = ''
+        ball.classList.remove('shake-animation')
+    } else if (question !== '' && question.slice(-1) !== '?') {
+        error.textContent = "Pytanie musi być zakończone znakiem '?'"
+        answer.textContent = ''
+        ball.classList.remove('shake-animation') 
     } else {
         error.textContent = "Musisz zadać jakieś pytanie"
+        answer.textContent = ''
+        ball.classList.remove('shake-animation')
     }
 }
 
 const checkAnswer = () => {
     error.textContent = ""
-
     
 fetch(myRequest)
   .then((response) => response.json())
