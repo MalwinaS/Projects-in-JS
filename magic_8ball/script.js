@@ -28,16 +28,14 @@ const checkQuestion = () => {
     if (question != '' && question.slice(-1) === '?') {
         checkAnswer()
         error.textContent = ''
-        ball.classList.remove('shake-animation')
     } else if (question !== '' && question.slice(-1) !== '?') {
         error.textContent = "Pytanie musi być zakończone znakiem '?'"
         answer.textContent = ''
-        ball.classList.remove('shake-animation') 
     } else {
         error.textContent = "Musisz zadać jakieś pytanie"
         answer.textContent = ''
-        ball.classList.remove('shake-animation')
     }
+    ball.classList.remove('shake-animation')
 }
 
 const checkAnswer = () => {
