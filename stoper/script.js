@@ -1,27 +1,32 @@
 const stopwatch = document.querySelector('.stopwatch')
 const time = document.querySelector('.time')
+const timeList = document.querySelector('.time-list')
+const modalShado = document.querySelector('.modal-shadow')
 
-const start = document.querySelector('.start')
-const pause = document.querySelector('.pause')
-const stop = document.querySelector('.stop')
-const reset = document.querySelector('.reset')
-const history = document.querySelector('.history')
+const startBtn = document.querySelector('.start')
+const pauseBtn = document.querySelector('.pause')
+const stopBtn = document.querySelector('.stop')
+const resetBtn = document.querySelector('.reset')
+const historyBtn = document.querySelector('.history')
+const infoBtn = document.querySelector('.info')
+const closeModalBtn = document.querySelector('.close')
 
-const actualDate = new Date();
-const now = actualDate.getTime();
 
+let countTime
+let minutes = 0
+let seconds = 0
 
-const playTime = () => {
-    let startb=0;
-    let stopb = new Date();
-    let sekundy = Math.abs(stopb-startb)/1000;
+const startTime = () => {
+    countTime = setInterval(() => {
 
-    console.log(sekundy)
+        if(seconds < 9) {
+        seconds++
+        stopwatch.textContent = `${seconds}:0${seconds}`
 
+        }
+    }, 1000)
 }
 
 
 
-start.addEventListener('click', playTime())
-
-
+startBtn.addEventListener('click', startTime)
