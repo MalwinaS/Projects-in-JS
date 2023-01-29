@@ -5,8 +5,8 @@
 }
 
 :root {
-    --first-color: #b51907;
-    --second-color: #c2b2b0;
+    --first-color: rgb(182, 24, 7);
+    --second-color: rgb(194, 178, 176);
 }
 
 body {
@@ -31,21 +31,29 @@ body {
     border-radius: 8px;
     box-shadow: 5px 5px 10px black;
     color: #fff;
+    overflow: hidden;
 }
 
-.info {
+.info i {
     position: absolute;
     top: 6px;
     right: 14px;
     padding: 20px;
-    font-size: 24px;
     color: var(--second-color);
     cursor: pointer;
     transition: color .3s;
+    font-size: 24px;
 }
 
-.info:hover {
-    position: absolute;
+.info .fa-question {
+    right: 15px;
+}
+
+.info .fa-paint-brush {
+    right: 70px;
+}
+
+.info i:hover {
     color: var(--first-color)
 }
 
@@ -89,6 +97,7 @@ button {
 .history {
     flex-grow: 1;
     text-transform: uppercase;
+    width: 100%;
 }
 
 button:hover, button:focus {
@@ -163,4 +172,48 @@ button:hover, button:focus {
     100% {
         opacity: 1;
     }
+}
+
+.colors {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 60px;
+    height: 200px;
+    top: 100px;
+    right: -100px;
+    transition: transform .3s;
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+     transition: background-color .5s, box-shadow .5s;
+}
+
+.show-colors {
+    transform: translateX(-110px)
+}
+
+.one {
+    background-color:rgb(182, 24, 7);
+}
+
+.two {
+    background-color:rgb(78, 173, 23);
+}
+
+.three {
+    background-color:rgb(51, 18, 199);
+}
+
+.one:hover,
+.two:hover,
+.three:hover   {
+    opacity: 0.8;
 }
