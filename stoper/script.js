@@ -19,7 +19,6 @@ const colorThree = document.querySelector('.three')
 
 let root = document.documentElement
 
-
 let countTime
 let minutes = 0
 let seconds = 0
@@ -94,8 +93,6 @@ const showModal = () => {
     }
     modalShadow.classList.toggle('modal-animation')
 }
-
-
 
 startBtn.addEventListener('click', startTime)
 pauseBtn.addEventListener('click', handlePause)
