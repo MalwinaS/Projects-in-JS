@@ -91,8 +91,6 @@ const removeNote = id => {
     noteArea.removeChild(noteToDelete)
 }
 
-
-
 addBtn.addEventListener('click', createNote)
 saveBtn.addEventListener('click', addNote)
 cancelBtn.addEventListener('click', cancelNote)
