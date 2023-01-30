@@ -35,6 +35,20 @@ const cancelNote = () => {
     category.selectedIndex = 0
 }
 
+const checkColor = note => {
+    switch(selectedValue) {
+        case 'Zakupy':
+            note.style.backgroundColor = 'rgb(60,179,113)'
+            break
+        case 'Praca':
+            note.style.backgroundColor = 'rgb(0,0,255)'
+            break
+        case 'Dom':
+            note.style.backgroundColor = 'rgb(255,165,0)'
+            break
+    }
+}
+
 const saveNote = () => {
 
     const newNote = document.createElement('div')
@@ -45,7 +59,7 @@ const saveNote = () => {
     <div class="note-item">
         <div class="note-header">
             <h3 class="note-title">${selectedValue}</h3>
-             <button class="delete-note">
+             <button class="delete-note" onclick="removeNote(${cardID})">
                 <i class="fas fa-times icon"></i>
             </button>
         </div>
@@ -56,17 +70,30 @@ const saveNote = () => {
 
     noteArea.appendChild(newNote)
     cardID++
-
     error.style.visibility = 'hidden'
     note.value = ''
     category.selectedIndex = 0
     popup.style.display = 'none'
+
+    checkColor(newNote)
 }
 
 const selectValue = () => {
     selectedValue = category.options[category.selectedIndex].text
 }
 
+const removeAllNotes = () => {
+    noteArea.textContent = ''
+}
+
+const removeNote = id => {
+    const noteToDelete = document.getElementById(id)
+    noteArea.removeChild(noteToDelete)
+}
+
+
+
 addBtn.addEventListener('click', createNote)
 saveBtn.addEventListener('click', addNote)
 cancelBtn.addEventListener('click', cancelNote)
+removeBtn.addEventListener('click', removeAllNotes)

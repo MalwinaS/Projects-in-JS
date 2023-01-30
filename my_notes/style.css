@@ -50,10 +50,9 @@ button:hover {
     padding: 20px;
 }
 
-.note-item {
+.note {
     margin: 40px 20px;
     width: 240px;
-    background-color: yellow;
     border: 1px solid black;
 }
 
@@ -62,7 +61,8 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.06);
+    background-color: rgba(184, 150, 150, 0.3);
+    border-bottom: 1px solid black;
 }
 
 .note-header .delete-note {
