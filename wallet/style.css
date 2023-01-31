@@ -252,3 +252,7 @@ h2.title {
 .add-transaction-panel button:hover {
     background-color: rgb(25,27,51);
 }
+
+.data {
+    margin-top: 20px;
+}
