@@ -18,6 +18,8 @@ const btnCancel = document.querySelector('.cancel')
 const data = document.querySelector('.data') 
 const transactionList = document.querySelector('.transaction-list') 
 
+const root = document.querySelector(':root');
+
 let selectedValue
 let cardID = 0
 
@@ -57,6 +59,7 @@ const saveTransaction = () => {
         incomeArea.append(newPlus)
         newPlus.classList.add('transaction')
         newPlus.setAttribute('id', cardID)
+
         newPlus.innerHTML = `
         <p class="transaction-name"><i class="fas fa-money-bill-wave"></i>
         ${name.value}</p>
@@ -64,7 +67,8 @@ const saveTransaction = () => {
             <button class="delete" onclick="deleteTransaction(${cardID})">
             <i class="fas fa-times"></i>
             </button>
-        </p>`
+        </p>
+        `
         cardID++
     } else if (amount.value < 0) {
         const newMinus = document.createElement('div')
@@ -106,16 +110,28 @@ const saveTransaction = () => {
 const deleteTransaction = id => {
     const transactionToDelete = document.getElementById(id)
     console.log(transactionToDelete)
-    // transactionToDelete.textContent = ''
-    transaction.removeChild(transactionToDelete)
+    transactionToDelete.remove()
 
 } 
 
 const deleteAllTransaction = () => { 
-    // transaction.forEach(trans => {
-    //     trans.remove()
-    // })
-    incomeArea.transaction = ''
+
+    const elements = Array.from(document.querySelectorAll('.transaction'))
+        elements.forEach(el => {
+        el.remove()  
+    })
+}
+
+const changeLight = () => {
+    root.style.setProperty('--first-color', '#F9F9F9');
+    root.style.setProperty('--second-color', '#14161F')
+    root.style.setProperty('--border-color', '#14161F')
+}
+
+const changeDark = () => {
+    root.style.setProperty('--first-color', '#14161F')
+    root.style.setProperty('--second-color', '#F9F9F9')
+    root.style.setProperty('--border-color', '#F9F9F9')
 }
 
 btnAddTransaction.addEventListener('click', addTransaction)
@@ -123,3 +139,5 @@ btnCancel.addEventListener('click', cancelTransaction)
 btnSave.addEventListener('click', checkTransaction)
 btnDelete.addEventListener('click', deleteTransaction)
 btnDeleteAll.addEventListener('click', deleteAllTransaction)
+btnLight.addEventListener('click', changeLight)
+btnDark.addEventListener('click', changeDark)
