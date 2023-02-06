@@ -4,14 +4,11 @@ const lists = document.querySelectorAll('li');
 const searching = e => {
   const text = e.target.value.toLowerCase();
     lists.forEach(el => {
-        console.log(el.textContent)
-        console.log(el.textContent.indexOf(text))
         if (el.textContent.toLowerCase().indexOf(text) !== -1) {
             el.style.display = 'block';
         } else {
             el.style.display = 'none';
         }
-
     })
 }
 
@@ -22,7 +19,6 @@ search.addEventListener('keyup', searching);
 
 // const search = document.querySelector('.search');
 // const lists = document.querySelectorAll('li');
-
 
 // const searching = () => {
 //     lists.forEach(el => {

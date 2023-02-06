@@ -73,22 +73,18 @@ const closePopup = e => {
 
 btnSend.addEventListener('click', e => {
     e.preventDefault()
-
     checkForm([username, pass, pass2, email])
     checkLength(username, 3)
     checkLength(pass, 8)
     checkPassword(pass, pass2)
     checkEmail(email)
     checkErrors()
-    
 })
 
 btnClear.addEventListener('click', e => {
     e.preventDefault()
-
     const arrayForm = [username, pass, pass2, email].forEach(el => {
         el.value = ''
-
         clearError(el)
     })
 })
@@ -98,7 +94,6 @@ btnClose.addEventListener('click', e => {
     closePopup()
     const arrayForm = [username, pass, pass2, email].forEach(el => {
         el.value = ''
-
         clearError(el)
     })
 })
