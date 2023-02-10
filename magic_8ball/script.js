@@ -29,8 +29,8 @@ const checkQuestion = () => {
     } else {
         error.textContent = "Musisz zadać jakieś pytanie"
         answer.textContent = ''
-    }
-    ball.classList.remove('shake-animation') 
+  }
+    ball.classList.remove('shake-animation')
 }
 
 const checkAnswer = () => {
