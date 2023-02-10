@@ -1,10 +1,8 @@
-// const ballArea = document.querySelector('.ball-area')
 const ball = document.querySelector('.ball')
 const answer = document.querySelector('.answer')
 const error = document.querySelector('.error')
 const questionInput = document.querySelector('.question')
 const myRequest = new Request('answers.json');
-
 
 questionInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -14,17 +12,14 @@ questionInput.addEventListener("keypress", function(event) {
     }
   })
 
-
 const startAnimate = () => {
     ball.classList.add('shake-animation')
     setTimeout(checkQuestion, 1000)
 }
 
 const checkQuestion = () => {      
-
     answer.textContent = ""
     const question = questionInput.value
-    // let pattern = /[.!?]$/
     if (question != '' && question.slice(-1) === '?') {
         checkAnswer()
         error.textContent = ''
@@ -34,12 +29,12 @@ const checkQuestion = () => {
     } else {
         error.textContent = "Musisz zadać jakieś pytanie"
         answer.textContent = ''
-    }
+  }
     ball.classList.remove('shake-animation')
 }
 
 const checkAnswer = () => {
-    error.textContent = ""
+    error.textContent = ''
     
 fetch(myRequest)
   .then((response) => response.json())
@@ -49,7 +44,6 @@ fetch(myRequest)
    let arrprop = (arr.answers)
    let answerRandom = arrprop[Math.floor(Math.random()*arrprop.length)];
    answer.innerHTML = `<span>Odpowiedź: </span> ${answerRandom}`
-
   })
 }
 
